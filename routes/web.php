@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,41 +32,41 @@ use App\Http\Controllers\ContactController;
 // });
 
 //Praktikum2
-// Route::get('/index', [PageController::class,'index']);
+Route::get('/index', [IndexController::class,'index']);
 
-// Route::get('/about', [PageController::class,'about']);
+Route::get('/about', [AboutController::class,'about']);
 
-// Route::get('/articles/{id}', [PageController::class,'articles']);
+Route::get('/articles/{id}', [ArticlesController::class,'articles']);
 
 //Praktikum3
-Route::get('/', function(){
-    return 'Ini halaman utama';
-});
+// Route::get('/', function(){
+//     return 'Ini halaman utama';
+// });
 
-Route::prefix('category')->group(function () {
-    Route::get('/games', [PageController::class, 'eduGames']);
-    Route::get('/kidsGames', [PageController::class, 'eduKidsGames']);
-    Route::get('/books', [PageController::class, 'eduBooks']);
-});
+// Route::prefix('category')->group(function () {
+//     Route::get('/games', [PageController::class, 'eduGames']);
+//     Route::get('/kidsGames', [PageController::class, 'eduKidsGames']);
+//     Route::get('/books', [PageController::class, 'eduBooks']);
+// });
 
-Route::get('/news/{name?}', function ($name = null){
-    return 'Anda berada pada berita '.$name;
-});
+// Route::get('/news/{name?}', function ($name = null){
+//     return 'Anda berada pada berita '.$name;
+// });
 
-Route::prefix('program')->group(function () {
-    Route::get('/karir', function () {
-        echo "Halaman program karir";
-    });
-    Route::get('/magang', function () {
-        echo "Halaman program magang";
-    });
-    Route::get('/kunIndustri', function () {
-        echo "Halaman program Kunjungan Industri";
-    });
-});
+// Route::prefix('program')->group(function () {
+//     Route::get('/karir', function () {
+//         echo "Halaman program karir";
+//     });
+//     Route::get('/magang', function () {
+//         echo "Halaman program magang";
+//     });
+//     Route::get('/kunIndustri', function () {
+//         echo "Halaman program Kunjungan Industri";
+//     });
+// });
 
-Route::get('/aboutUs', function () {
-    echo "About Us";
-});
+// Route::get('/aboutUs', function () {
+//     echo "About Us";
+// });
 
-Route::resource('contactUs', ContactController::class)->only(['show']);
+// Route::resource('contactUs', ContactController::class)->only(['show']);
